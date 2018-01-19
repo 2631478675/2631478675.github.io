@@ -154,6 +154,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Spring之Bean配置3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基于注解的形式配置bean及其属性"><a href="#基于注解的形式配置bean及其属性" class="headerlink" title="基于注解的形式配置bean及其属性"></a>基于注解的形式配置bean及其属性</h1><ul>
+<li>在classpath下扫描组件<ul>
+<li>@component</li>
+<li>@Controller</li>
+<li>@Service</li>
+<li>@Respository</li>
+<li>DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查<br>Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤<br>Action：这个就是抵用Service把功能实现了</li>
+</ul>
+</li>
+<li>步骤：<ul>
+<li>在组件类上使用注解</li>
+<li>在Spring配置文件上声明</li>
+</ul>
+</li>
+<li>bean与bean之间引用，关联<ul>
+<li>@Autowired </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class UserController &#123;</span><br><span class="line"> //此时是UserRepository加入了Ioc容器中，如果没加入的话</span><br><span class="line">    //则要写成@Autowired（required=false）</span><br><span class="line">    /*</span><br><span class="line">    如果UserRepository接口含有多个实现类，则需要注明</span><br><span class="line">    @Qualifier（&quot;userRepositoryImpl&quot;）</span><br><span class="line">    也可以将其加入到setter方法的形参前面</span><br><span class="line">     */</span><br><span class="line">    //创建关联关系</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    public void execute()&#123;</span><br><span class="line">        System.out.println(&quot;UserController execute...&quot;);</span><br><span class="line">        //创建关联关系</span><br><span class="line">        userService.add();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/19/Spring之Bean配置3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
