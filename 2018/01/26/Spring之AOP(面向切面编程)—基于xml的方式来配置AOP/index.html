@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://2631478675.github.io">
   <title>Moment backの博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于注解的形式配置bean及其属性 在classpath下扫描组件 @component @Controller @Service @Respository DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤Action：这个就是抵用Service把功能实现了   步骤： 在组件类上使用注解 在Spri">
+  <meta name="description" content="步骤：  配置各种bean(注意：切面本质上也是个类，也需要配置) 配置aop切面 配置切面表达式 配置切面（即指向哪个类作为切面） 配置通知（前置通知，后置通知，，，）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Moment backの博客">
-<meta property="og:url" content="http://2631478675.github.io/2018/01/19/Spring之Bean配置3/index.html">
+<meta property="og:url" content="http://2631478675.github.io/2018/01/26/Spring之AOP(面向切面编程)—基于xml的方式来配置AOP/index.html">
 <meta property="og:site_name" content="Moment backの博客">
-<meta property="og:description" content="基于注解的形式配置bean及其属性 在classpath下扫描组件 @component @Controller @Service @Respository DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤Action：这个就是抵用Service把功能实现了   步骤： 在组件类上使用注解 在Spri">
-<meta property="og:updated_time" content="2018-01-19T04:13:27.092Z">
+<meta property="og:description" content="步骤：  配置各种bean(注意：切面本质上也是个类，也需要配置) 配置aop切面 配置切面表达式 配置切面（即指向哪个类作为切面） 配置通知（前置通知，后置通知，，，）">
+<meta property="og:updated_time" content="2018-01-19T04:13:25.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Moment backの博客">
-<meta name="twitter:description" content="基于注解的形式配置bean及其属性 在classpath下扫描组件 @component @Controller @Service @Respository DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤Action：这个就是抵用Service把功能实现了   步骤： 在组件类上使用注解 在Spri">
+<meta name="twitter:description" content="步骤：  配置各种bean(注意：切面本质上也是个类，也需要配置) 配置aop切面 配置切面表达式 配置切面（即指向哪个类作为切面） 配置通知（前置通知，后置通知，，，）">
   
     <link rel="alternative" href="/atom.xml" title="Moment backの博客" type="application/atom+xml">
   
@@ -153,31 +153,23 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring之Bean配置3" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spring之AOP(面向切面编程)—基于xml的方式来配置AOP" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基于注解的形式配置bean及其属性"><a href="#基于注解的形式配置bean及其属性" class="headerlink" title="基于注解的形式配置bean及其属性"></a>基于注解的形式配置bean及其属性</h1><ul>
-<li>在classpath下扫描组件<ul>
-<li>@component</li>
-<li>@Controller</li>
-<li>@Service</li>
-<li>@Respository</li>
-<li>DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查<br>Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤<br>Action：这个就是抵用Service把功能实现了</li>
-</ul>
-</li>
-<li>步骤：<ul>
-<li>在组件类上使用注解</li>
-<li>在Spring配置文件上声明</li>
-</ul>
-</li>
-<li>bean与bean之间引用，关联<ul>
-<li>@Autowired </li>
+        <p>步骤：</p>
+<ul>
+<li>配置各种bean(注意：切面本质上也是个类，也需要配置)</li>
+<li>配置aop切面<ul>
+<li>配置切面表达式</li>
+<li>配置切面（即指向哪个类作为切面）<ul>
+<li>配置通知（前置通知，后置通知，，，） </li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class UserController &#123;</span><br><span class="line"> //此时是UserRepository加入了Ioc容器中，如果没加入的话</span><br><span class="line">    //则要写成@Autowired（required=false）</span><br><span class="line">    /*</span><br><span class="line">    如果UserRepository接口含有多个实现类，则需要注明</span><br><span class="line">    @Qualifier（&quot;userRepositoryImpl&quot;）</span><br><span class="line">    也可以将其加入到setter方法的形参前面</span><br><span class="line">     */</span><br><span class="line">    //创建关联关系</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    public void execute()&#123;</span><br><span class="line">        System.out.println(&quot;UserController execute...&quot;);</span><br><span class="line">        //创建关联关系</span><br><span class="line">        userService.add();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
 
@@ -257,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://2631478675.github.io/2018/01/19/Spring之Bean配置3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://2631478675.github.io/2018/01/26/Spring之AOP(面向切面编程)—基于xml的方式来配置AOP/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -271,15 +263,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/26/Spring之AOP(面向切面编程)—基于xml的方式来配置AOP/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2018/01/19/Spring之Bean配置3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
