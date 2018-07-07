@@ -6,21 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://2631478675.github.io">
-  <title>springmvc实现原理 | Moment backの博客</title>
+  <title>Tag: hexo | Moment backの博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
-<meta name="keywords" content="interview">
-<meta property="og:type" content="article">
-<meta property="og:title" content="springmvc实现原理">
-<meta property="og:url" content="http://2631478675.github.io/2018/07/07/springmvc实现原理/index.html">
+  <meta name="description" content="刚入后端的小菜鸡">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moment backの博客">
+<meta property="og:url" content="http://2631478675.github.io/tags/hexo/index.html">
 <meta property="og:site_name" content="Moment backの博客">
-<meta property="og:description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
-<meta property="og:image" content="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg">
-<meta property="og:updated_time" content="2018-07-07T03:09:17.306Z">
+<meta property="og:description" content="刚入后端的小菜鸡">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springmvc实现原理">
-<meta name="twitter:description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
-<meta name="twitter:image" content="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg">
+<meta name="twitter:title" content="Moment backの博客">
+<meta name="twitter:description" content="刚入后端的小菜鸡">
   
     <link rel="alternative" href="/atom.xml" title="Moment backの博客" type="application/atom+xml">
   
@@ -156,190 +152,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springmvc实现原理" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      springmvc实现原理
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/07/重装系统后恢复hexo/" class="archive-article-date">
+  	<time datetime="2018-07-07T03:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/07/重装系统后恢复hexo/">恢复hexo</a>
     </h1>
   
 
-        
-        <a href="/2018/07/07/springmvc实现原理/" class="archive-article-date">
-  	<time datetime="2018-07-07T03:09:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="springmvc运行流程、运行原理"><a href="#springmvc运行流程、运行原理" class="headerlink" title="springmvc运行流程、运行原理"></a>springmvc运行流程、运行原理</h4><ul>
-<li>发送请求至前端控制器DispatcherServlet</li>
-<li>DispatcehrServelt接收到request调用HandlerMapping处理器映射器</li>
-<li>处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet</li>
-<li>DispatcherServlet通过HandlerAdapter处理器适配器调用处理器，执行处理器（controller）</li>
-<li>controller执行完成后返回ModelAndView，并返回给HandlerAdapter,HandlerAdapter将结果返回给DispatcherServlet</li>
-<li>DispatcherServlet将ModelAndView传给ViewReslover视图解析器</li>
-<li>ViewReslover解析后返回具体的View给DispatcherServlet</li>
-<li>DispatcherServlet对View进行渲染视图（将数据填充进视图中）返回给客户<br><img src="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg" alt="image"></li>
-</ul>
-<h4 id="各处理器作用"><a href="#各处理器作用" class="headerlink" title="各处理器作用"></a>各处理器作用</h4><ul>
-<li>前端控制器DiapatcherServlet：接受请求、响应结果、渲染视图、相当于转发器</li>
-<li>处理器映射器HandlerMapping: 根据URL查找相应处理器Controller、返回相应的Controller和Interceptor</li>
-<li>处理器配适器HandlerAdpter:处理相应的controller，返回modelAndView</li>
-<li>视图解析器ViewResolver:解析modelAndView，返回view</li>
-</ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="http://www.cnblogs.com/xiaohouzai/p/7402038.html" target="_blank" rel="noopener">SpringMVC框架介绍</a></li>
-<li><a href="https://segmentfault.com/a/1190000015468759" target="_blank" rel="noopener">深入理解springMVC</a></li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://2631478675.github.io/2018/07/07/springmvc实现原理/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/07/07/重装系统后恢复hexo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          恢复hexo
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -362,9 +228,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

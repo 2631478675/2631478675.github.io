@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://2631478675.github.io">
-  <title>springmvc实现原理 | Moment backの博客</title>
+  <title>恢复hexo | Moment backの博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
-<meta name="keywords" content="interview">
+  <meta name="description" content="安装软件 安装node.js 运行cmd，安装hexo  1- npm install hexo-cli -g  安装成功  123456C:\Users\liuyu\AppData\Roaming\npm\hexo -&amp;gt; C:\Users\liuyu\AppData\Roaming\npm\node_modules\hexo-cli\bin\hexonpm WARN optional SK">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springmvc实现原理">
-<meta property="og:url" content="http://2631478675.github.io/2018/07/07/springmvc实现原理/index.html">
+<meta property="og:title" content="恢复hexo">
+<meta property="og:url" content="http://2631478675.github.io/2018/07/07/重装系统后恢复hexo/index.html">
 <meta property="og:site_name" content="Moment backの博客">
-<meta property="og:description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
-<meta property="og:image" content="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg">
-<meta property="og:updated_time" content="2018-07-07T03:09:17.306Z">
+<meta property="og:description" content="安装软件 安装node.js 运行cmd，安装hexo  1- npm install hexo-cli -g  安装成功  123456C:\Users\liuyu\AppData\Roaming\npm\hexo -&amp;gt; C:\Users\liuyu\AppData\Roaming\npm\node_modules\hexo-cli\bin\hexonpm WARN optional SK">
+<meta property="og:image" content="http://p3379ff71.bkt.clouddn.com/2018-07-07_105952.png">
+<meta property="og:updated_time" content="2018-07-07T03:23:17.376Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springmvc实现原理">
-<meta name="twitter:description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
-<meta name="twitter:image" content="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg">
+<meta name="twitter:title" content="恢复hexo">
+<meta name="twitter:description" content="安装软件 安装node.js 运行cmd，安装hexo  1- npm install hexo-cli -g  安装成功  123456C:\Users\liuyu\AppData\Roaming\npm\hexo -&amp;gt; C:\Users\liuyu\AppData\Roaming\npm\node_modules\hexo-cli\bin\hexonpm WARN optional SK">
+<meta name="twitter:image" content="http://p3379ff71.bkt.clouddn.com/2018-07-07_105952.png">
   
     <link rel="alternative" href="/atom.xml" title="Moment backの博客" type="application/atom+xml">
   
@@ -156,46 +156,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-springmvc实现原理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-重装系统后恢复hexo" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      springmvc实现原理
+      恢复hexo
     </h1>
   
 
         
-        <a href="/2018/07/07/springmvc实现原理/" class="archive-article-date">
-  	<time datetime="2018-07-07T03:09:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
+        <a href="/2018/07/07/重装系统后恢复hexo/" class="archive-article-date">
+  	<time datetime="2018-07-07T03:23:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="springmvc运行流程、运行原理"><a href="#springmvc运行流程、运行原理" class="headerlink" title="springmvc运行流程、运行原理"></a>springmvc运行流程、运行原理</h4><ul>
-<li>发送请求至前端控制器DispatcherServlet</li>
-<li>DispatcehrServelt接收到request调用HandlerMapping处理器映射器</li>
-<li>处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet</li>
-<li>DispatcherServlet通过HandlerAdapter处理器适配器调用处理器，执行处理器（controller）</li>
-<li>controller执行完成后返回ModelAndView，并返回给HandlerAdapter,HandlerAdapter将结果返回给DispatcherServlet</li>
-<li>DispatcherServlet将ModelAndView传给ViewReslover视图解析器</li>
-<li>ViewReslover解析后返回具体的View给DispatcherServlet</li>
-<li>DispatcherServlet对View进行渲染视图（将数据填充进视图中）返回给客户<br><img src="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg" alt="image"></li>
+        <h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><ul>
+<li><a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">安装node.js</a></li>
+<li>运行cmd，安装hexo</li>
 </ul>
-<h4 id="各处理器作用"><a href="#各处理器作用" class="headerlink" title="各处理器作用"></a>各处理器作用</h4><ul>
-<li>前端控制器DiapatcherServlet：接受请求、响应结果、渲染视图、相当于转发器</li>
-<li>处理器映射器HandlerMapping: 根据URL查找相应处理器Controller、返回相应的Controller和Interceptor</li>
-<li>处理器配适器HandlerAdpter:处理相应的controller，返回modelAndView</li>
-<li>视图解析器ViewResolver:解析modelAndView，返回view</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装成功</li>
 </ul>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><a href="http://www.cnblogs.com/xiaohouzai/p/7402038.html" target="_blank" rel="noopener">SpringMVC框架介绍</a></li>
-<li><a href="https://segmentfault.com/a/1190000015468759" target="_blank" rel="noopener">深入理解springMVC</a></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\liuyu\AppData\Roaming\npm\hexo -&gt; C:\Users\liuyu\AppData\Roaming\npm\node_modules\hexo-cli\bin\hexo</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.4 (node_modules\hexo-cli\node_modules\fsevents):</span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br><span class="line"></span><br><span class="line">+ hexo-cli@1.1.0</span><br><span class="line">added 103 packages in 37.308s</span><br></pre></td></tr></table></figure>
+<ul>
+<li>之前安装，blog文件夹还在，切换到blog文件夹下<br><img src="http://p3379ff71.bkt.clouddn.com/2018-07-07_105952.png" alt="image"></li>
 </ul>
+<h4 id="绑定到GitHub"><a href="#绑定到GitHub" class="headerlink" title="绑定到GitHub"></a>绑定到GitHub</h4><blockquote>
+<p>ps:因为是恢复恢复！！！，所以不需要</p>
+<h3 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h3></blockquote>
+<ul>
+<li>清除缓存文件db.json和已生成的静态文件public</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成网站静态文件到默认的public文件夹</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+<ul>
+<li>自动生成网站静态文件，并部署到指定的仓库中</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
       
 
@@ -230,7 +237,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -286,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://2631478675.github.io/2018/07/07/springmvc实现原理/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://2631478675.github.io/2018/07/07/重装系统后恢复hexo/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -300,15 +307,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/07/重装系统后恢复hexo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          恢复hexo
-        
-      </div>
-    </a>
   
+    <a href="/2018/07/07/springmvc实现原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springmvc实现原理</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
