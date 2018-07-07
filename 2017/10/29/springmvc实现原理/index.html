@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://2631478675.github.io">
-  <title>Moment backの博客</title>
+  <title>springmvc实现原理 | Moment backの博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="步骤：  配置各种bean(注意：切面本质上也是个类，也需要配置) 配置aop切面 配置切面表达式 配置切面（即指向哪个类作为切面） 配置通知（前置通知，后置通知，，，）">
+  <meta name="description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
+<meta name="keywords" content="interview">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Moment backの博客">
-<meta property="og:url" content="http://2631478675.github.io/2018/01/26/Spring之AOP(面向切面编程)—基于xml的方式来配置AOP/index.html">
+<meta property="og:title" content="springmvc实现原理">
+<meta property="og:url" content="http://2631478675.github.io/2017/10/29/springmvc实现原理/index.html">
 <meta property="og:site_name" content="Moment backの博客">
-<meta property="og:description" content="步骤：  配置各种bean(注意：切面本质上也是个类，也需要配置) 配置aop切面 配置切面表达式 配置切面（即指向哪个类作为切面） 配置通知（前置通知，后置通知，，，）">
-<meta property="og:updated_time" content="2018-01-19T04:13:25.591Z">
+<meta property="og:description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
+<meta property="og:image" content="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg">
+<meta property="og:updated_time" content="2018-07-07T02:18:11.679Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Moment backの博客">
-<meta name="twitter:description" content="步骤：  配置各种bean(注意：切面本质上也是个类，也需要配置) 配置aop切面 配置切面表达式 配置切面（即指向哪个类作为切面） 配置通知（前置通知，后置通知，，，）">
+<meta name="twitter:title" content="springmvc实现原理">
+<meta name="twitter:description" content="springmvc运行流程、运行原理 发送请求至前端控制器DispatcherServlet DispatcehrServelt接收到request调用HandlerMapping处理器映射器 处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet DispatcherServlet通过HandlerAdapter处理器适配器调用处理">
+<meta name="twitter:image" content="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Moment backの博客" type="application/atom+xml">
   
@@ -153,22 +156,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring之AOP(面向切面编程)—基于xml的方式来配置AOP" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springmvc实现原理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      springmvc实现原理
+    </h1>
+  
+
+        
+        <a href="/2017/10/29/springmvc实现原理/" class="archive-article-date">
+  	<time datetime="2017-10-29T13:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>步骤：</p>
-<ul>
-<li>配置各种bean(注意：切面本质上也是个类，也需要配置)</li>
-<li>配置aop切面<ul>
-<li>配置切面表达式</li>
-<li>配置切面（即指向哪个类作为切面）<ul>
-<li>配置通知（前置通知，后置通知，，，） </li>
+        <h4 id="springmvc运行流程、运行原理"><a href="#springmvc运行流程、运行原理" class="headerlink" title="springmvc运行流程、运行原理"></a>springmvc运行流程、运行原理</h4><ul>
+<li>发送请求至前端控制器DispatcherServlet</li>
+<li>DispatcehrServelt接收到request调用HandlerMapping处理器映射器</li>
+<li>处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet</li>
+<li>DispatcherServlet通过HandlerAdapter处理器适配器调用处理器，执行处理器（controller）</li>
+<li>controller执行完成后返回ModelAndView，并返回给HandlerAdapter,HandlerAdapter将结果返回给DispatcherServlet</li>
+<li>DispatcherServlet将ModelAndView传给ViewReslover视图解析器</li>
+<li>ViewReslover解析后返回具体的View给DispatcherServlet</li>
+<li>DispatcherServlet对View进行渲染视图（将数据填充进视图中）返回给客户<br><img src="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg" alt="image"></li>
 </ul>
-</li>
+<h4 id="各处理器作用"><a href="#各处理器作用" class="headerlink" title="各处理器作用"></a>各处理器作用</h4><ul>
+<li>前端控制器DiapatcherServlet：接受请求、响应结果、渲染视图、相当于转发器</li>
+<li>处理器映射器HandlerMapping: 根据URL查找相应处理器Controller、返回相应的Controller和Interceptor</li>
+<li>处理器配适器HandlerAdpter:处理相应的controller，返回modelAndView</li>
+<li>视图解析器ViewResolver:解析modelAndView，返回view</li>
 </ul>
-</li>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a href="http://www.cnblogs.com/xiaohouzai/p/7402038.html" target="_blank" rel="noopener">SpringMVC框架介绍</a></li>
+<li><a href="https://segmentfault.com/a/1190000015468759" target="_blank" rel="noopener">深入理解springMVC</a></li>
 </ul>
 
       
@@ -199,6 +225,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -249,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://2631478675.github.io/2018/01/26/Spring之AOP(面向切面编程)—基于xml的方式来配置AOP/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://2631478675.github.io/2017/10/29/springmvc实现原理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,16 +298,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2018/01/19/Spring之Bean配置3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -381,6 +408,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

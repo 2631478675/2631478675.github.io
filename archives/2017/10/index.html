@@ -6,18 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://2631478675.github.io">
-  <title>Moment backの博客</title>
+  <title>Archives: 2017/10 | Moment backの博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于注解的形式配置bean及其属性 在classpath下扫描组件 @component @Controller @Service @Respository DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤Action：这个就是抵用Service把功能实现了   步骤： 在组件类上使用注解 在Spri">
-<meta property="og:type" content="article">
+  <meta name="description" content="刚入后端的小菜鸡">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Moment backの博客">
-<meta property="og:url" content="http://2631478675.github.io/2018/01/19/Spring之Bean配置3/index.html">
+<meta property="og:url" content="http://2631478675.github.io/archives/2017/10/index.html">
 <meta property="og:site_name" content="Moment backの博客">
-<meta property="og:description" content="基于注解的形式配置bean及其属性 在classpath下扫描组件 @component @Controller @Service @Respository DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤Action：这个就是抵用Service把功能实现了   步骤： 在组件类上使用注解 在Spri">
-<meta property="og:updated_time" content="2018-01-19T04:13:27.092Z">
+<meta property="og:description" content="刚入后端的小菜鸡">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Moment backの博客">
-<meta name="twitter:description" content="基于注解的形式配置bean及其属性 在classpath下扫描组件 @component @Controller @Service @Respository DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤Action：这个就是抵用Service把功能实现了   步骤： 在组件类上使用注解 在Spri">
+<meta name="twitter:description" content="刚入后端的小菜鸡">
   
     <link rel="alternative" href="/atom.xml" title="Moment backの博客" type="application/atom+xml">
   
@@ -153,164 +152,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring之Bean配置3" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-    <div class="article-entry" itemprop="articleBody">
+    
       
-        <h1 id="基于注解的形式配置bean及其属性"><a href="#基于注解的形式配置bean及其属性" class="headerlink" title="基于注解的形式配置bean及其属性"></a>基于注解的形式配置bean及其属性</h1><ul>
-<li>在classpath下扫描组件<ul>
-<li>@component</li>
-<li>@Controller</li>
-<li>@Service</li>
-<li>@Respository</li>
-<li>DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查<br>Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤<br>Action：这个就是抵用Service把功能实现了</li>
-</ul>
-</li>
-<li>步骤：<ul>
-<li>在组件类上使用注解</li>
-<li>在Spring配置文件上声明</li>
-</ul>
-</li>
-<li>bean与bean之间引用，关联<ul>
-<li>@Autowired </li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class UserController &#123;</span><br><span class="line"> //此时是UserRepository加入了Ioc容器中，如果没加入的话</span><br><span class="line">    //则要写成@Autowired（required=false）</span><br><span class="line">    /*</span><br><span class="line">    如果UserRepository接口含有多个实现类，则需要注明</span><br><span class="line">    @Qualifier（&quot;userRepositoryImpl&quot;）</span><br><span class="line">    也可以将其加入到setter方法的形参前面</span><br><span class="line">     */</span><br><span class="line">    //创建关联关系</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    public void execute()&#123;</span><br><span class="line">        System.out.println(&quot;UserController execute...&quot;);</span><br><span class="line">        //创建关联关系</span><br><span class="line">        userService.add();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
       
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/10/29/springmvc实现原理/" class="archive-article-date">
+  	<time datetime="2017-10-29T13:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
+</a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/10/29/springmvc实现原理/">springmvc实现原理</a>
+    </h1>
+  
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://2631478675.github.io/2018/01/19/Spring之Bean配置3/" alt="微信分享二维码">
-    </div>
-</div>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/01/26/Spring之AOP(面向切面编程)—基于xml的方式来配置AOP/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -333,8 +228,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -393,6 +288,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

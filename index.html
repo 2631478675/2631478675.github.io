@@ -154,90 +154,46 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Spring之AOP(面向切面编程)—基于xml的方式来配置AOP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-springmvc实现原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>步骤：</p>
-<ul>
-<li>配置各种bean(注意：切面本质上也是个类，也需要配置)</li>
-<li>配置aop切面<ul>
-<li>配置切面表达式</li>
-<li>配置切面（即指向哪个类作为切面）<ul>
-<li>配置通知（前置通知，后置通知，，，） </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/26/Spring之AOP(面向切面编程)—基于xml的方式来配置AOP/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+      <header class="article-header">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-Spring之Bean配置3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/29/springmvc实现原理/">springmvc实现原理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/29/springmvc实现原理/" class="archive-article-date">
+  	<time datetime="2017-10-29T13:28:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-29</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="基于注解的形式配置bean及其属性"><a href="#基于注解的形式配置bean及其属性" class="headerlink" title="基于注解的形式配置bean及其属性"></a>基于注解的形式配置bean及其属性</h1><ul>
-<li>在classpath下扫描组件<ul>
-<li>@component</li>
-<li>@Controller</li>
-<li>@Service</li>
-<li>@Respository</li>
-<li>DAO:数据交互层，对数据处理，我个人理解就是对数据的增删改查<br>Service：所谓的业务层，个人理解就是处理业务逻辑，业务比如实现功能所需要的步骤<br>Action：这个就是抵用Service把功能实现了</li>
+        <h4 id="springmvc运行流程、运行原理"><a href="#springmvc运行流程、运行原理" class="headerlink" title="springmvc运行流程、运行原理"></a>springmvc运行流程、运行原理</h4><ul>
+<li>发送请求至前端控制器DispatcherServlet</li>
+<li>DispatcehrServelt接收到request调用HandlerMapping处理器映射器</li>
+<li>处理器映射器根据请求的URL找到具体的处理器，生成处理器对象及处理器拦截器，并返回给DispatcherServlet</li>
+<li>DispatcherServlet通过HandlerAdapter处理器适配器调用处理器，执行处理器（controller）</li>
+<li>controller执行完成后返回ModelAndView，并返回给HandlerAdapter,HandlerAdapter将结果返回给DispatcherServlet</li>
+<li>DispatcherServlet将ModelAndView传给ViewReslover视图解析器</li>
+<li>ViewReslover解析后返回具体的View给DispatcherServlet</li>
+<li>DispatcherServlet对View进行渲染视图（将数据填充进视图中）返回给客户<br><img src="http://p3379ff71.bkt.clouddn.com/1530928652714.jpg" alt="image"></li>
 </ul>
-</li>
-<li>步骤：<ul>
-<li>在组件类上使用注解</li>
-<li>在Spring配置文件上声明</li>
+<h4 id="各处理器作用"><a href="#各处理器作用" class="headerlink" title="各处理器作用"></a>各处理器作用</h4><ul>
+<li>前端控制器DiapatcherServlet：接受请求、响应结果、渲染视图、相当于转发器</li>
+<li>处理器映射器HandlerMapping: 根据URL查找相应处理器Controller、返回相应的Controller和Interceptor</li>
+<li>处理器配适器HandlerAdpter:处理相应的controller，返回modelAndView</li>
+<li>视图解析器ViewResolver:解析modelAndView，返回view</li>
 </ul>
-</li>
-<li>bean与bean之间引用，关联<ul>
-<li>@Autowired </li>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a href="http://www.cnblogs.com/xiaohouzai/p/7402038.html" target="_blank" rel="noopener">SpringMVC框架介绍</a></li>
+<li><a href="https://segmentfault.com/a/1190000015468759" target="_blank" rel="noopener">深入理解springMVC</a></li>
 </ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class UserController &#123;</span><br><span class="line"> //此时是UserRepository加入了Ioc容器中，如果没加入的话</span><br><span class="line">    //则要写成@Autowired（required=false）</span><br><span class="line">    /*</span><br><span class="line">    如果UserRepository接口含有多个实现类，则需要注明</span><br><span class="line">    @Qualifier（&quot;userRepositoryImpl&quot;）</span><br><span class="line">    也可以将其加入到setter方法的形参前面</span><br><span class="line">     */</span><br><span class="line">    //创建关联关系</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserService userService;</span><br><span class="line">    public void execute()&#123;</span><br><span class="line">        System.out.println(&quot;UserController execute...&quot;);</span><br><span class="line">        //创建关联关系</span><br><span class="line">        userService.add();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -246,11 +202,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">interview</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/19/Spring之Bean配置3/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/10/29/springmvc实现原理/">展开全文 >></a>
         </p>
       
 
@@ -363,6 +330,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">interview</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
