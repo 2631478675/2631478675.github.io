@@ -161,13 +161,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/索引/">索引</a>
+      <a class="article-title" href="/2018/07/09/索引/">索引</a>
     </h1>
   
 
         
-        <a href="/2018/07/08/索引/" class="archive-article-date">
-  	<time datetime="2018-07-08T15:51:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
+        <a href="/2018/07/09/索引/" class="archive-article-date">
+  	<time datetime="2018-07-08T16:13:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
 </a>
         
       </header>
@@ -206,9 +206,9 @@
 </ul>
 <hr>
 <h4 id="最左前缀原理"><a href="#最左前缀原理" class="headerlink" title="最左前缀原理"></a>最左前缀原理</h4><h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><ul>
-<li>使用命令查看titles中有哪些索引</li>
+<li>使用命令查看titles中有哪些索引<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show index from titles;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show index from titles;</span><br></pre></td></tr></table></figure>
 <p><img src="http://p3379ff71.bkt.clouddn.com/查看索引命令.png" alt="image"></p>
 <ul>
 <li>delete auxiliary index</li>
@@ -239,10 +239,30 @@
 <li>其实只有最左前缀起了作用 （中间条件没使用，所以没办法和最左前缀连接）</li>
 <li>解决办法：增加辅助索引</li>
 <li>解决方法二：填坑（know）</li>
+<li>如果最左条件未使用，则不会使用索引</li>
 </ul>
 </li>
 </ul>
-<h2 id=""><a href="#" class="headerlink" title=" "></a><img src="http://p3379ff71.bkt.clouddn.com/查询条件用到了索引中列的精确匹配，但是中间某个条件未提供.png" alt="image"> </h2><h4 id="Hash索引"><a href="#Hash索引" class="headerlink" title="Hash索引"></a>Hash索引</h4><ul>
+<p><img src="http://p3379ff71.bkt.clouddn.com/查询条件用到了索引中列的精确匹配，但是中间某个条件未提供.png" alt="image"> </p>
+<ul>
+<li>范围查询（范围查询只能用于最左前缀）<ul>
+<li>explain无法区分范围索引和多值匹配（between…and）</li>
+<li>最左前缀使用了多值匹配，则不属于范围查询</li>
+<li>索引最多用于一个范围列</li>
+<li>一句话，<strong>在最左前缀可以使用范围查询，并且后面的列都无法使用索引</strong>，另外注意范围查询和多值匹配的区别</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://p3379ff71.bkt.clouddn.com/2018-07-09_000640.png" alt="image"></p>
+<ul>
+<li>查询条件中不能使用函数或者表达式<ul>
+<li>如果最左前缀使用了函数或者表达式，则不会用到索引</li>
+<li>如果某列使用的函数或者表达式，则这一列不会用到索引</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="何时使用索引？"><a href="#何时使用索引？" class="headerlink" title="何时使用索引？"></a>何时使用索引？</h4><h2 id="to-do-something"><a href="#to-do-something" class="headerlink" title="- to do something"></a>- to do something</h2><h4 id="Hash索引"><a href="#Hash索引" class="headerlink" title="Hash索引"></a>Hash索引</h4><ul>
 <li>基于Hash表实现的，只有在查询条件精确匹配到Hash索引中的所有列时，才可以使用hash索引-&gt;只能用于等值查询中</li>
 <li>为什么只能支持全值匹配的查询<ul>
 <li>Hash索引中的所有列，存储引擎都会每一行计算一个Hash码（每一个对象），hash索引中存储的就是hash码</li>
@@ -276,7 +296,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL，interview</a>
         		</li>
       		
 		</ul>
@@ -286,7 +306,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/08/索引/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/09/索引/">展开全文 >></a>
         </p>
       
 
@@ -602,7 +622,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL，interview</a>
               </li>
             
             <div class="clearfix"></div>
