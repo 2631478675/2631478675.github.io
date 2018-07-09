@@ -193,8 +193,8 @@
 </li>
 </ul>
 </li>
-<li><strong>MyISAM</strong> engine uses B+tree as index structure，the data field of the leaf nodes store the address of the data record.<br><img src="http://p3379ff71.bkt.clouddn.com/2018-07-08_170136.png" alt="image"></li>
-<li><strong>InnoDB</strong> also uses B+tree as the index structure ,but  it is implemented differently from MyISAM.<ul>
+<li><strong>MyISAM</strong> engine uses B+tree as index structure，the data field of the leaf nodes store the address of the data record.（非聚集索引）<br><img src="http://p3379ff71.bkt.clouddn.com/2018-07-08_170136.png" alt="image"></li>
+<li><strong>InnoDB</strong> also uses B+tree as the index structure ,but  it is implemented differently from MyISAM.（聚集索引）<ul>
 <li>the leaf node contains the complete data record.<br><img src="http://p3379ff71.bkt.clouddn.com/2018-07-08_171112.png" alt="image"></li>
 </ul>
 </li>
@@ -203,6 +203,17 @@
 <li>leaf nodes store different things.</li>
 <li>the index files and data files in InnoDB are one file,but they are separated in MyISAM.</li>
 <li>InnoDB`s auxiliary index data field stores the value of the corresponding rather than the address.</li>
+</ul>
+<hr>
+<h4 id="聚集索引和非聚集索引"><a href="#聚集索引和非聚集索引" class="headerlink" title="聚集索引和非聚集索引"></a>聚集索引和非聚集索引</h4><ul>
+<li>聚集索引<ul>
+<li>相当于拼音查询，InnoDB的B+tree索引结构 </li>
+</ul>
+</li>
+<li>非聚集索引<ul>
+<li>相当于偏旁查询，MyISAM的B+tree索引结构 </li>
+</ul>
+</li>
 </ul>
 <hr>
 <h4 id="最左前缀原理"><a href="#最左前缀原理" class="headerlink" title="最左前缀原理"></a>最左前缀原理</h4><h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h5><ul>
@@ -262,7 +273,15 @@
 </li>
 </ul>
 <hr>
-<h4 id="何时使用索引？"><a href="#何时使用索引？" class="headerlink" title="何时使用索引？"></a>何时使用索引？</h4><h2 id="to-do-something"><a href="#to-do-something" class="headerlink" title="- to do something"></a>- to do something</h2><h4 id="Hash索引"><a href="#Hash索引" class="headerlink" title="Hash索引"></a>Hash索引</h4><ul>
+<h4 id="何时使用索引？"><a href="#何时使用索引？" class="headerlink" title="何时使用索引？"></a>何时使用索引？</h4><ul>
+<li>表记录多（一两千条是没必要建索引的）</li>
+<li>索引的选择性高，selectivity<ul>
+<li>不重复的索引值/表记录数（作为索引的列的值尽量不重复，selectivity就高）</li>
+<li>selectivity的取值范围为（0,1】</li>
+</ul>
+</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://p3379ff71.bkt.clouddn.com/2018-07-09_201820.png" alt="image"></h2><h4 id="Hash索引"><a href="#Hash索引" class="headerlink" title="Hash索引"></a>Hash索引</h4><ul>
 <li>基于Hash表实现的，只有在查询条件精确匹配到Hash索引中的所有列时，才可以使用hash索引-&gt;只能用于等值查询中</li>
 <li>为什么只能支持全值匹配的查询<ul>
 <li>Hash索引中的所有列，存储引擎都会每一行计算一个Hash码（每一个对象），hash索引中存储的就是hash码</li>
@@ -296,7 +315,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL，interview</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL、interview</a>
         		</li>
       		
 		</ul>
@@ -618,11 +637,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">MySQL、interview</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL，interview</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
